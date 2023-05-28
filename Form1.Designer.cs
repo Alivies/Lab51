@@ -47,13 +47,14 @@
             this.AnswerRectangle = new System.Windows.Forms.Label();
             this.AnswerTrapeze = new System.Windows.Forms.Label();
             this.AnswerParabola = new System.Windows.Forms.Label();
+            this.AccuracySearchBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlotView
             // 
             this.PlotView.ForeColor = System.Drawing.Color.Maroon;
-            this.PlotView.Location = new System.Drawing.Point(236, 6);
+            this.PlotView.Location = new System.Drawing.Point(241, -6);
             this.PlotView.Margin = new System.Windows.Forms.Padding(2);
             this.PlotView.Name = "PlotView";
             this.PlotView.PanCursor = System.Windows.Forms.Cursors.Hand;
@@ -123,7 +124,7 @@
             // 
             // AccuracyBox
             // 
-            this.AccuracyBox.Location = new System.Drawing.Point(51, 176);
+            this.AccuracyBox.Location = new System.Drawing.Point(51, 143);
             this.AccuracyBox.Margin = new System.Windows.Forms.Padding(2);
             this.AccuracyBox.Name = "AccuracyBox";
             this.AccuracyBox.Size = new System.Drawing.Size(103, 20);
@@ -133,7 +134,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(25, 170);
+            this.label6.Location = new System.Drawing.Point(19, 142);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(26, 21);
@@ -142,7 +143,7 @@
             // 
             // EndBBox
             // 
-            this.EndBBox.Location = new System.Drawing.Point(51, 141);
+            this.EndBBox.Location = new System.Drawing.Point(51, 119);
             this.EndBBox.Margin = new System.Windows.Forms.Padding(2);
             this.EndBBox.Name = "EndBBox";
             this.EndBBox.Size = new System.Drawing.Size(103, 20);
@@ -152,7 +153,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 135);
+            this.label5.Location = new System.Drawing.Point(24, 113);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 21);
@@ -161,7 +162,7 @@
             // 
             // StartABox
             // 
-            this.StartABox.Location = new System.Drawing.Point(51, 104);
+            this.StartABox.Location = new System.Drawing.Point(51, 95);
             this.StartABox.Margin = new System.Windows.Forms.Padding(2);
             this.StartABox.Name = "StartABox";
             this.StartABox.Size = new System.Drawing.Size(103, 20);
@@ -171,7 +172,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 100);
+            this.label4.Location = new System.Drawing.Point(25, 91);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 21);
@@ -245,12 +246,22 @@
             this.AnswerParabola.Size = new System.Drawing.Size(0, 13);
             this.AnswerParabola.TabIndex = 45;
             // 
+            // AccuracySearchBox
+            // 
+            this.AccuracySearchBox.AutoSize = true;
+            this.AccuracySearchBox.Location = new System.Drawing.Point(23, 177);
+            this.AccuracySearchBox.Name = "AccuracySearchBox";
+            this.AccuracySearchBox.Size = new System.Drawing.Size(15, 14);
+            this.AccuracySearchBox.TabIndex = 46;
+            this.AccuracySearchBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.AccuracySearchBox);
             this.Controls.Add(this.AnswerParabola);
             this.Controls.Add(this.AnswerTrapeze);
             this.Controls.Add(this.AnswerRectangle);
@@ -298,5 +309,6 @@
         private System.Windows.Forms.Label AnswerRectangle;
         private System.Windows.Forms.Label AnswerTrapeze;
         private System.Windows.Forms.Label AnswerParabola;
+        private System.Windows.Forms.CheckBox AccuracySearchBox;
     }
 }

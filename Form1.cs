@@ -31,6 +31,7 @@ namespace Lab5
             double Start = 0;
             double End = 0;
             int StepsQuantity = 0;
+            double NeedAccuracy = 0;
             bool Debug = false;
 
             if (!Debug)
@@ -54,21 +55,35 @@ namespace Lab5
                     MessageBox.Show("Ошибка формата числа b.");
                     return;
                 }
+                if (!AccuracySearchBox.Checked)
+                {
+                    try
+                    {
+                        StepsQuantity = Convert.ToInt32(AccuracyBox.Text.Replace('.', ','));
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка формата числа N.");
+                        return;
+                    }
 
-                try
-                {
-                    StepsQuantity = Convert.ToInt32(AccuracyBox.Text.Replace('.', ','));
+                    if (StepsQuantity <= 1 || StepsQuantity > 10000)
+                    {
+                        MessageBox.Show("Ошибка формата числа N. Число должно быть в диапазоне от 2 до 10000");
+                        return;
+                    }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Ошибка формата числа N.");
-                    return;
-                }
-
-                if (StepsQuantity <= 1 || StepsQuantity > 10000)
-                {
-                    MessageBox.Show("Ошибка формата числа N. Число должно быть в диапазоне от 2 до 10000");
-                    return;
+                    try
+                    {
+                        NeedAccuracy = Convert.ToDouble(AccuracyBox.Text.Replace('.', ','));
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка формата числа N.");
+                        return;
+                    }
                 }
 
                 if (Start < -1000000 || Start > 1000000)
@@ -95,10 +110,10 @@ namespace Lab5
                 StepsQuantity = 10;
             }
 
-            Calculate(Function, Start, End, StepsQuantity);
+            Calculate(Function, Start, End, StepsQuantity, NeedAccuracy);
         }
 
-        void Calculate(string Function, double Start, double End, int StepsQuantity)
+        void Calculate(string Function, double Start, double End, int StepsQuantity, double NeedAccuracy)
         {
             FunctionLine = Function;
             try
@@ -115,6 +130,11 @@ namespace Lab5
             {
                 MessageBox.Show("Точка начала не может быть левее точки конца!");
                 return;
+            }
+
+            if (AccuracySearchBox.Checked)
+            {
+                StepsQuantity = SearchStepsQuantity(Parser, Function, Start, End, NeedAccuracy);
             }
 
             double PointsQuantity = 1000;
@@ -223,6 +243,23 @@ namespace Lab5
             }
 
             return Figures;
+        }
+
+        int SearchStepsQuantity(MathParser Parser, string Function, double Start, double End, double NeedAccuracy)
+        {
+            double MaxAccuracyValue = GetRectanglesMethodValue(Parser, Function, Start, End, 1000);
+
+            for (int NowAccuracy = 2; NowAccuracy < 10000; NowAccuracy++)
+            {
+                double NowValue = GetRectanglesMethodValue(Parser, Function, Start, End, NowAccuracy);
+
+                if (Math.Abs(NowValue - MaxAccuracyValue) < NeedAccuracy)
+                {
+                    return NowAccuracy;
+                }
+            }
+
+            return 1000;
         }
 
         double GetRectanglesMethodValue(MathParser Parser, string Function, double Start, double End, int StepsQuantity)

@@ -132,10 +132,11 @@ namespace Lab5
                 return;
             }
 
-            if (AccuracySearchBox.Checked)
-            {
-                StepsQuantity = SearchStepsQuantity(Parser, Function, Start, End, NeedAccuracy);
-            }
+            //if (AccuracySearchBox.Checked)
+            //{
+            StepsQuantity = SearchStepsQuantity(Parser, Function, Start, End, NeedAccuracy);
+            nBox.Text = $"n: {StepsQuantity - 1}";
+            //}
 
             double PointsQuantity = 1000;
 
@@ -556,6 +557,11 @@ namespace Lab5
             AnswerParabola.Text = "";
 
             FunctionLine = "";
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

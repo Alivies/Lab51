@@ -48,6 +48,7 @@
             this.AnswerTrapeze = new System.Windows.Forms.Label();
             this.AnswerParabola = new System.Windows.Forms.Label();
             this.AccuracySearchBox = new System.Windows.Forms.CheckBox();
+            this.nBox = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,9 +138,10 @@
             this.label6.Location = new System.Drawing.Point(19, 142);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 21);
+            this.label6.Size = new System.Drawing.Size(23, 21);
             this.label6.TabIndex = 39;
-            this.label6.Text = "N:";
+            this.label6.Text = "e:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // EndBBox
             // 
@@ -249,11 +251,25 @@
             // AccuracySearchBox
             // 
             this.AccuracySearchBox.AutoSize = true;
-            this.AccuracySearchBox.Location = new System.Drawing.Point(23, 177);
+            this.AccuracySearchBox.Checked = true;
+            this.AccuracySearchBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AccuracySearchBox.Location = new System.Drawing.Point(0, 146);
             this.AccuracySearchBox.Name = "AccuracySearchBox";
             this.AccuracySearchBox.Size = new System.Drawing.Size(15, 14);
             this.AccuracySearchBox.TabIndex = 46;
             this.AccuracySearchBox.UseVisualStyleBackColor = true;
+            this.AccuracySearchBox.Visible = false;
+            // 
+            // nBox
+            // 
+            this.nBox.AutoSize = true;
+            this.nBox.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nBox.Location = new System.Drawing.Point(19, 172);
+            this.nBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nBox.Name = "nBox";
+            this.nBox.Size = new System.Drawing.Size(23, 21);
+            this.nBox.TabIndex = 47;
+            this.nBox.Text = "n:";
             // 
             // Form1
             // 
@@ -261,6 +277,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.nBox);
             this.Controls.Add(this.AccuracySearchBox);
             this.Controls.Add(this.AnswerParabola);
             this.Controls.Add(this.AnswerTrapeze);
@@ -310,5 +327,6 @@
         private System.Windows.Forms.Label AnswerTrapeze;
         private System.Windows.Forms.Label AnswerParabola;
         private System.Windows.Forms.CheckBox AccuracySearchBox;
+        private System.Windows.Forms.Label nBox;
     }
 }
